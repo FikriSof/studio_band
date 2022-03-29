@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- studioband.studiomusik tree view -->
+    <record id="studioband_studiomusik_view_tree" model="ir.ui.view">
+        <field name="name">Jenis Tipe Studio Musik</field>
+        <field name="model">studioband.studiomusik</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="paketband_id"/>
+                <field name="deskripsi"/>
+                <field name="harga"/>
+                <field name="stok"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- studioband.studiomusik form view -->
+    <record id="studioband_studiomusik_view_form" model="ir.ui.view">
+        <field name="name">Form Studio Musik</field>
+        <field name="model">studioband.studiomusik</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="paketband_id"/>
+                        <field name="deskripsi"/>
+                        <field name="harga"/>
+                        <field name="stok"/>
+                    </group>
+                    <notebook>
+                        <page string="DESKRIPSI PAKET BAND">
+                            <field name="des_paketband"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- studioband.studiomusik action window -->
+    <record id="studioband_studiomusik_action" model="ir.actions.act_window">
+        <field name="name">Daftar Jenis Tipe Studio Musik</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">studioband.studiomusik</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem 
+    id="studioband_penyewaan_studiomusik_menu_act" 
+    name="Sewa Studio Musik" 
+    parent="studioband_penyewaan_menu_categ" 
+    action="studioband_studiomusik_action" 
+    sequence="10"/>
+</odoo>

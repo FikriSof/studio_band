@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+<template id="report_studioband_order">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <h1>Nota Order</h1>
+                    <h2>
+                    <div class="row">
+                        <div class="col-4">Kode Order   :</div>
+                        <div class="col-8"><span t-field="o.name"/></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">Nama Pemesan :</div>
+                        <div class="col-8"><span t-field="o.pemesan"/></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">Tanggal Main :</div>
+                        <div class="col-8"><span t-field="o.tanggal_main"/></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">Total Tagihan :</div>
+                        <div class="col-8"><span t-field="o.total"/></div>
+                    </div>
+                    </h2>
+
+                    <h3>
+                    <div class="row">
+                        <table class="table-bordered">
+                                <tr>
+                                    <th>Nama Tipe Studio</th>
+                                    <th>Nama Alat Musik</th>
+                                    <th>Banyak Room Studio</th>
+                                    <th>Banyak Alat Musik</th>
+                                    <th>Waktu Room Studio / Jam</th>
+                                    <th>Waktu Alat Musik / Jam</th>
+                                    <th>Harga Room Studio</th>
+                                    <th>Harga Alat Musik</th>
+                                </tr>
+                        <t t-foreach="o.orderalatdetail_ids" t-as="k">
+                        <t t-foreach="o.orderstudiodetail_ids" t-as="i">
+                                <tr>
+                                    <td><span t-esc="i.studio_id.name"/></td>
+                                    <td><span t-esc="k.alatmusik_id.name"/></td>
+                                    <td><span t-esc="i.qty"/></td>
+                                    <td><span t-esc="k.qty"/></td>
+                                    <td><span t-esc="i.waktu_sewa"/></td>
+                                    <td><span t-esc="k.waktu_sewa"/></td>
+                                    <td><span t-esc="i.harga"/></td>
+                                    <td><span t-esc="k.harga"/></td>
+                                </tr>                          
+                        </t>
+                        </t>
+                        </table>
+                    </div>
+                    </h3>
+                </div>
+            </t>
+        </t>
+    </t>
+</template>
+</odoo>

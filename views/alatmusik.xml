@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- studioband.alatmusik tree view -->
+    <record id="studioband_alatmusik_view_tree" model="ir.ui.view">
+        <field name="name">Jenis Sewa Alat Musik</field>
+        <field name="model">studioband.alatmusik</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="harga"/>
+                <field name="stok"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- studioband.alatmusik form view -->
+    <record id="studioband_alatmusik_view_form" model="ir.ui.view">
+        <field name="name">Form Alat Musik</field>
+        <field name="model">studioband.alatmusik</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="stok"/>
+                        <field name="harga"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- studioband.alatmusik action window -->
+    <record id="studioband_alatmusik_action" model="ir.actions.act_window">
+        <field name="name">Daftar Sewa Alat Musik</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">studioband.alatmusik</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem 
+    id="studioband_penyewaan_alatmusik_menu_act" 
+    name="Sewa Alat Musik" 
+    parent="studioband_penyewaan_menu_categ" 
+    action="studioband_alatmusik_action" 
+    sequence="20"/>
+</odoo>

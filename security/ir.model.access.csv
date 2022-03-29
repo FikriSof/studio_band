@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_studioband_studiomusik,access.studioband.studiomusik,model_studioband_studiomusik,,1,1,1,1
+access_studioband_alatmusik,access.studioband.alatmusik,model_studioband_alatmusik,,1,1,1,1
+access_studioband_paketband,access.studioband.paketband,model_studioband_paketband,,1,1,1,1
+access_studioband_order,access.studioband.order,model_studioband_order,,1,1,1,1
+access_studioband_orderstudiodetail,access.studioband.orderstudiodetail,model_studioband_orderstudiodetail,,1,1,1,1
+access_studioband_orderalatdetail,access.studioband.orderalatdetail,model_studioband_orderalatdetail,,1,1,1,1
+access_studioband_orderselesai,access.studioband.orderselesai,model_studioband_orderselesai,,1,1,1,1

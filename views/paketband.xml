@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- studioband.paketband tree view -->
+    <record id="studioband_paketband_view_tree" model="ir.ui.view">
+        <field name="name">Jenis Tipe Paket Alat Band</field>
+        <field name="model">studioband.paketband</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="paket"/>
+                <field name="deskripsi"/>
+                <field name="harga"/>
+                <field name="stok"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- studioband.paketband form view -->
+    <record id="studioband_paketband_view_form" model="ir.ui.view">
+        <field name="name">Form Paket Alat Band</field>
+        <field name="model">studioband.paketband</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="stok"/>
+                        <field name="harga"/>
+                    </group>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="paket"/>
+                        <field name="deskripsi"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- studioband.paketband action window -->
+    <record id="studioband_paketband_action" model="ir.actions.act_window">
+        <field name="name">Daftar Tipe Paket Alat Band</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">studioband.paketband</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem 
+    id="studioband_penyewaan_paketband_menu_act" 
+    name="Sewa Paket Alat Band" 
+    parent="studioband_penyewaan_menu_categ" 
+    action="studioband_paketband_action" 
+    sequence="30"/>
+</odoo>

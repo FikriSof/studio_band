@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- studioband.orderselesai tree view -->
+    <record id="studioband_orderselesai_view_tree" model="ir.ui.view">
+        <field name="name">Daftar Orderan Selesai</field>
+        <field name="model">studioband.orderselesai</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="order_id"/>
+                <field name="name"/>             
+                <field name="tagihan"/> 
+                <field name="tgl_selesai"/>      
+            </tree>
+        </field>
+    </record>
+
+    <!-- studioband.orderselesai form view -->
+    <record id="studioband_orderselesai_view_form" model="ir.ui.view">
+        <field name="name">Orderan Selesai</field>
+        <field name="model">studioband.orderselesai</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="order_id"/>
+                        <field name="name"/>
+                    </group>
+                     <group>                        
+                        <field name="tgl_selesai"/>
+                    </group>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="tagihan"/>                       
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- studioband.orderselesai action window -->
+    <record id="studioband_orderselesai_action" model="ir.actions.act_window">
+        <field name="name">Orderan Selesai</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">studioband.orderselesai</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem 
+        id="studioband_orderselesai_menu_act" 
+        name="Orderan Selesai" 
+        parent="studioband_order_menu_categ" 
+        action="studioband_orderselesai_action" 
+        sequence="20"/>
+</odoo>
