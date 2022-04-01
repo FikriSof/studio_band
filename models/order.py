@@ -31,8 +31,37 @@ class Order(models.Model):
             b = sum(self.env['studioband.orderalatdetail'].search([('ordera_id', '=', record.id)]).mapped('harga'))
             record.total = a + b
 
-    sudah_selesai = fields.Boolean(string='Orderan Telah Selesai', default=False)
+    sudah_selesai = fields.Boolean(string='Telah Dibayarkan', default=False)
     
+    status = fields.Selection([
+        ('draft', 'Draft'),
+        ('invoice', 'Invoiced'),
+        ('done', 'Done'),
+    ], default='draft', required=True)
+
+    def draft(self):
+        self.status = 'draft'
+        
+    def invoice(self):
+        self.status = 'invoice'
+        invoices = self.env['account.move'].create({
+            'move_type': 'out_invoice',  
+            'partner_id': self.pemesan,
+            'invoice_date': self.tanggal_book,
+            'date': fields.Datetime.now(),
+            'invoice_line_ids': [(0, 0, {
+                'product_id': 0,
+                'quantity': 1,
+                'discount': 0,
+                'price_unit': self.total,
+                'price_subtotal': self.total,
+            })] 
+        })
+        return invoices
+
+    def done(self):
+        self.status = 'done'
+        self.sudah_selesai = True
 
 class OrderStudioDetail(models.Model):
     _name = 'studioband.orderstudiodetail'
