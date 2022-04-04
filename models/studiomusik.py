@@ -10,6 +10,7 @@ class StudioMusik(models.Model):
     deskripsi = fields.Char(string='Deskripsi')
     stok = fields.Integer(string='Ketersediaan Room')
     harga = fields.Char(compute='_compute_harga', string='Harga')
+    image = fields.Binary(string='Studio Image')
     
     @api.depends('paketband_id')
     def _compute_harga(self):

@@ -12,6 +12,7 @@
                 <field name="deskripsi"/>
                 <field name="harga"/>
                 <field name="stok"/>
+                <field name="image" widget="image"/>
             </tree>
         </field>
     </record>
@@ -23,6 +24,7 @@
         <field name="arch" type="xml">
             <form string="">
                 <sheet>
+                    <field name="image" widget="image" class="oe_avatar"/>
                     <group>
                         <!-- Add your fields here -->
                         <field name="name"/>
