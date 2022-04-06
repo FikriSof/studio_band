@@ -39,12 +39,47 @@
         </field>
     </record>
 
+    <record id="studioband_orderselesai_kanban" model="ir.ui.view">
+        <field name="name">Orders Selesai Kanban</field>
+        <field name="model">studioband.orderselesai</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="order_id"/>
+                <field name="name"/>
+                <field name="tgl_selesai"/>
+                <field name="tagihan"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <h3><li><strong>Kode Order :</strong>
+                                        <field name="order_id"/>
+                                    </li></h3>
+                                    <li>Nama :
+                                        <field name="name"/>
+                                    </li>
+                                    <li>Tanggal Selesai :
+                                        <field name="tgl_selesai"/>
+                                    </li>
+                                    <li>Tagihan :
+                                        <field name="tagihan"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
     <!-- studioband.orderselesai action window -->
     <record id="studioband_orderselesai_action" model="ir.actions.act_window">
         <field name="name">Orderan Selesai</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">studioband.orderselesai</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,kanban</field>
     </record>
 
     <!-- This Menu Item must have a parent and an action -->

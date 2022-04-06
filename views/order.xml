@@ -66,7 +66,62 @@
                         </field>                                                 
                     </group> 
                 </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
             </form>
+        </field>
+    </record>
+
+    <record id="studioband_order_search" model="ir.ui.view">
+        <field name="name">Orders Search</field>
+        <field name="model">studioband.order</field>
+        <field name="arch" type="xml">
+            <search string="Orders">
+                <field name="name"/>
+                <field name="pemesan"/>
+                <field name="tanggal_main"/>
+                <field name="status"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="studioband_order_kanban" model="ir.ui.view">
+        <field name="name">Orders Kanban</field>
+        <field name="model">studioband.order</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="pemesan"/>
+                <field name="tanggal_main"/>
+                <field name="status"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <h3><li><strong>Kode Order :</strong>
+                                        <field name="name"/>
+                                    </li></h3>
+                                    <li>Nama :
+                                        <field name="pemesan"/>
+                                    </li>
+                                    <li>Tanggal Booking :
+                                        <field name="tanggal_book"/>
+                                    </li>
+                                    <li>Tanggal Main :
+                                        <field name="tanggal_main"/>
+                                    </li>
+                                    <li>Status Order:
+                                        <field name="status"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
         </field>
     </record>
 
@@ -75,7 +130,7 @@
         <field name="name">Sewa Studio Band</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">studioband.order</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,kanban,search</field>
     </record>
 
     <!-- This Menu Item must have a parent and an action -->

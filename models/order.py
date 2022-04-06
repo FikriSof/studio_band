@@ -3,6 +3,7 @@ from odoo.exceptions import ValidationError
 
 class Order(models.Model):
     _name = 'studioband.order'
+    _inherit = ["mail.thread"]
     _description = 'New Description'
 
     orderstudiodetail_ids = fields.One2many(
